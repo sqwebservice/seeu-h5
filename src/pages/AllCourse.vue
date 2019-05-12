@@ -5,8 +5,8 @@
       <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
     </header>
     <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
-    <van-tabs v-model="active" sticky animated offset-top="44" swipeable>
-      <van-tab v-for="item in tabs" :title="item.class" :key="item.id">
+    <van-tabs v-model="active" sticky animated :offset-top="44" swipeable>
+      <van-tab v-for="item in tabs" :title="item.class_name" :key="item.id">
         <CourseList :classid="item.id"/>
       </van-tab>
     </van-tabs>
@@ -14,28 +14,33 @@
 </template>
 
 <script>
+  import API from '../api';
+
   export default {
     name: "course",
     data() {
       return {
         titleName:'全部课程',
-        tabs: [
-          { id:1, class: '金融行业' },
-          { id:2, class: '咨询行业' },
-          { id:3, class: '快测行业' },
-          { id:4, class: '会计行业' },
-          { id:5, class: '互联网行业' },
-          { id:6, class: '广告行业' },
-          { id:7, class: '房地产行业' }
-        ]
+        active:'',
+        tabs: []
       }
     },
 
     created(){
     },
     mounted(){
+      this.getCourseClz();
     },
     updated(){
+    },
+    methods: {
+      getCourseClz(){
+        console.info('getCourseClz');
+        API.courseClass().then((re)=>{
+          console.warn(re, 'getCourseClz');
+          this.tabs=re.data.data;
+        });
+      }
     }
   }
 
