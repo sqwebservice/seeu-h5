@@ -1,0 +1,58 @@
+<template>
+  <div id="su-datum">
+    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
+      <a class="mui-action-back mui-icon mui-icon-back mui-pull-left" style="color: #fff"></a>
+      <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
+    </header>
+    <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
+    <van-tabs v-model="active" sticky animated offset-top="44" swipeable>
+      <van-tab v-for="item in tabs" :title="item.class" :key="item.id">
+        <DatumList :classid="item.id"/>
+      </van-tab>
+    </van-tabs>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "AllDatum",
+    data() {
+      return {
+        titleName: '全部资料',
+        tabs: [
+          { id:1, class: '金融行业' },
+          { id:2, class: '咨询行业' },
+          { id:3, class: '快测行业' },
+          { id:4, class: '会计行业' },
+          { id:5, class: '互联网行业' },
+          { id:6, class: '广告行业' },
+          { id:7, class: '房地产行业' }
+        ]
+      }
+    }
+  }
+</script>
+
+<style>
+  .van-tabs__line{
+    background-color: #67b8bf;
+  }
+  .van-tabs__line:after{
+    content: '';
+    width:0;
+    height:0;
+    border-width:0 5px 5px;
+    border-style:solid;
+    border-color:transparent transparent #67b8bf;/*透明 透明  灰*/
+    position:absolute;
+    bottom: 5px;
+    left: 45%;
+  }
+</style>
+<style scoped>
+  #su-datum{
+    padding-top: 44px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+</style>
