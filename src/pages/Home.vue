@@ -31,7 +31,7 @@
       <div class="panel-content">
         <div v-for="item in teachers">
           <div class="mui-row">
-            <div class="mui-col-sm-3 mui-col-xs-6 list-item" v-for="tItem in item.list">
+            <div class="mui-col-sm-3 mui-col-xs-3 list-item" v-for="tItem in item.list">
               <img :src="tItem.img" >
               <div class="name">{{tItem.name}}</div>
             </div>
@@ -51,7 +51,7 @@
       </div>
       <div class="panel-content">
         <div class="mui-row">
-          <div class="mui-col-sm-6 mui-col-xs-12 cover-course" v-for="item in allClass">
+          <div class="mui-col-sm-6 mui-col-xs-6 cover-course" v-for="item in allClass">
             <div class="image">
               <img class="img" :src="item.img"/>
               <img class="play" src="../../static/images/play-small-new_1daa417.png">
@@ -102,7 +102,7 @@
           }
         ];
         this.news = [
-          {id:1, text:'Marking Analytics 专业，理工科和商科的完美结合'},
+          {id:1, text:'Marking Analytics 专业，理工科和商科的完美结合Marking Analytics 专业，理工科和商科的完美结合'},
           {id:2, text:'想学BA？Business Analytics和Business Analytics分满了吗?'},
           {id:3, text:'面试专题|What`s your Weakness?'},
         ];
