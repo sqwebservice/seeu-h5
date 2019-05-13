@@ -34,31 +34,35 @@
 </template>
 
 <script>
-  export default {
+import API from '../api';
+
+export default {
     name: "TeacherList",
+    props: ['clasid'],
     data() {
       return {
         list: [],
         loading: false,
         finished: false,
-        isRefresh: false
+        isRefresh: false,
+        reqParams:{
+          page: 1,
+          page_size: 10
+        }
       }
     },
     methods: {
       onLoad() {
-        // 异步更新数据
-        setTimeout(() => {
-          for (let i = 0; i < 10; i++) {
-            this.list.push(this.list.length + 1);
-          }
-          // 加载状态结束
-          this.loading = false;
-
-          // 数据全部加载完成
-          if (this.list.length >= 40) {
+        API.getTeacherList(this.clasid, this.reqParams).then((re)=>{
+          console.log(re, 'onLoad');
+          let data = re.data.data;
+          if(!data || data.length==0){
+            this.loading = false;
             this.finished = true;
           }
-        }, 500);
+        }).catch(re=>{
+          this.loading = false;
+        });
       },
       onRefresh(){
         setTimeout(()=>{

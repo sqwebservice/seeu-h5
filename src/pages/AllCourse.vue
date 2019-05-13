@@ -6,7 +6,7 @@
     </header>
     <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
     <van-tabs v-model="active" sticky animated :offset-top="44" swipeable>
-      <van-tab v-for="item in tabs" :title="item.class_name" :key="item.id">
+      <van-tab v-for="item in tabs" :title="item.class_name" :key="item.id" v-on:change="change">
         <CourseList :classid="item.id"/>
       </van-tab>
     </van-tabs>
@@ -40,6 +40,9 @@
           console.warn(re, 'getCourseClz');
           this.tabs=re.data.data;
         });
+      },
+      change(){
+        this.$refs.listContainer.scrollTop=0;
       }
     }
   }
