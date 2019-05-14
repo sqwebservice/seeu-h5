@@ -2,7 +2,7 @@
  * van 组件
  **/
 import Vue from 'vue';
-import { Button, Tab, Tabs, List,Cell, PullRefresh, Toast, Dialog } from 'vant';
+import { Button, Tab, Tabs, List,Cell, PullRefresh, Toast, Dialog,Swipe, SwipeItem } from 'vant';
 
 Vue.use(Button);
 Vue.use(Tab).use(Tabs);//可以横向滚动的tab标签
@@ -13,6 +13,7 @@ Vue.use(Toast);
 Vue.use(Dialog);
 Vue.prototype.$toast = Toast;
 Vue.prototype.$dialog = Dialog;
+Vue.use(Swipe).use(SwipeItem);
 
 export default 'vant';
 

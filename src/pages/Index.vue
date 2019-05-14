@@ -1,7 +1,7 @@
 <template>
   <div id="su-index">
     <div id="router">
-      <keep-alive>
+      <keep-alive include="test,mbti">
         <router-view></router-view>
       </keep-alive>
     </div>
