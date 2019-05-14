@@ -8,20 +8,16 @@
         @load="onLoad"
       >
         <div class="mui-row">
-          <div class="mui-col-sm-6 mui-col-xs-6" v-for="item in list" :key="item">
+          <div class="mui-col-sm-6 mui-col-xs-6" v-for="item in list" :key="item.id">
             <div class="sq-card">
-              <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556718275056&di=7c9f2516ce0f341cb28291d46ab129f7&imgtype=0&src=http%3A%2F%2Fimage-258.258.com%2F258com%2F20171111%2Fdd6b7f47fa6e430b5440121fa75e491a.jpg">
+              <img ：src="item.avatar">
               <div class="info">
                 <div class="info-name">
-                  <div class="name"><span class="tag">‘</span>Sophia.Lin</div>
+                  <div class="name"><span class="tag">‘</span>{{item.name}}</div>
                   <div class="line"></div>
                   <span class="titles">SeeU 职业规划师</span>
                 </div>
-                <div class="more">
-                  <div>介绍介绍介绍</div>
-                  <div>介绍介绍介绍介绍介绍</div>
-                  <div>介绍介绍介绍介绍介绍</div>
-                  <div>介绍介绍介绍介绍介绍介绍介绍介绍</div>
+                <div class="more" v-html="item.avatar">
                 </div>
               </div>
               <button class="card-button" @click="yuyue(item)">查看详情</button>
@@ -38,7 +34,7 @@ import API from '../api';
 
 export default {
     name: "TeacherList",
-    props: ['clasid'],
+    props: ['classid'],
     data() {
       return {
         list: [],
@@ -47,16 +43,18 @@ export default {
         isRefresh: false,
         reqParams:{
           page: 1,
-          page_size: 10
+          page_size: 10,
+          class_id: this.classid
         }
       }
     },
     methods: {
       onLoad() {
-        API.getTeacherList(this.clasid, this.reqParams).then((re)=>{
-          console.log(re, 'onLoad');
+        API.getTeacherList(this.reqParams).then((re)=>{
           let data = re.data.data;
-          if(!data || data.length==0){
+          console.log(re, 'onLoad');
+          if(data && data.length>0){
+            this.list=data;
             this.loading = false;
             this.finished = true;
           }
@@ -72,6 +70,11 @@ export default {
       },
       yuyue(){
         this.$router.push({name: 'yuyue'});
+      },
+      mounted(){
+        this.$toast(this.classid);
+        console.log(this.classid, 'mounted');
+
       }
     }
   }

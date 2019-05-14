@@ -7,9 +7,9 @@ const cjv = baseUrl+"/api/v1/cjv";
 const courseClz = baseUrl+"/api/v1/courses";  //视频分类
 const courseUrl = baseUrl+" /api/v1/course/list/";  //视频列表
 const datumBooks = baseUrl+"/api/v1/books";  //资料分类
-const datumList = baseUrl+"/api/v1/books/list/";  //资料列表
+const datumList = baseUrl+"/api/v1/books/chapters";  //资料列表
 const teacher = baseUrl+" /api/v1/teacher/sort";  //导师分类
-const teacherList = baseUrl+"/api/v1/teacher/";  //导师列表
+const teacherList = baseUrl+"/api/v1/teacher";  //导师列表
 
 //轮播图
 const getBanner = ()=>{
@@ -45,8 +45,8 @@ const getDatumTab = ()=>{
   return doGet(datumBooks, arg);
 }
   //资料列表
-  const getDatumList = (id, params)=>{
-    return doGet(datumList+id, params);
+  const getDatumList = (params)=>{
+    return doGet(datumList, params);
   }
 
 //导师分类
@@ -58,8 +58,8 @@ const getTeacherTab = ()=>{
   return doGet(teacher, arg);
 }
 //导师列表
-const getTeacherList = (id, params)=>{
-  return doGet(teacherList+id, params);
+const getTeacherList = (params)=>{
+  return doGet(teacherList, params);
 }
 
   const API = {

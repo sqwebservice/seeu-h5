@@ -8,19 +8,19 @@
         @load="onLoad"
       >
 
-        <div class="cover-item" v-for="item in list" :key="item">
+        <div class="cover-item" v-for="item in list" :key="item.id">
           <div class="image">
-            <img class="img" :src="item.url">
+            <img class="img" :src="item.thumb">
           </div>
           <div class="details left">
-            <div class="title">11</div>
-            <div class="teacher">22</div>
-            <div class="info">33</div>
+            <div class="title">{{item.title}}</div>
+            <div class="teacher"></div>
+            <div class="info" v-html="item.content"></div>
           </div>
           <div class="right">
-            <div class="numbers"><a class="mui-icon mui-icon-person"></a>444</div>
-            <div class="numbers"><a class="mui-icon mui-icon mui-icon-chatbubble"></a>阅读6666</div>
-            <div class="numbers"><a class="mui-icon mui-icon mui-icon-star"></a>收藏77777</div>
+            <div class="numbers"><a class="mui-icon mui-icon-person"></a>{{item.published_at}}</div>
+            <div class="numbers"><a class="mui-icon mui-icon mui-icon-chatbubble"></a>阅读{{item.view_num}}</div>
+            <div class="numbers"><a class="mui-icon mui-icon mui-icon-star"></a>收藏{{item.view_num}}</div>
             <div class="button">免费试看</div>
           </div>
         </div>
@@ -37,7 +37,7 @@
 
   export default {
     name: "DatumList",
-    props: ['bookid'],
+    props: ['book_id'],
     data() {
       return {
         list: [],
@@ -46,16 +46,17 @@
         isRefresh: false,
         reqParams:{
           page: 1,
-          page_size: 10
+          page_size: 10,
+          book_id:this.book_id
         }
       }
     },
     methods: {
       onLoad() {
-        API.getDatumList(this.bookid, this.reqParams).then((re)=>{
-          console.log(re, 'onLoad');
+        API.getDatumList(this.reqParams).then((re)=>{
           let data = re.data.data;
-          if(!data || data.length==0){
+          if(data && data.length>0){
+            this.list=data;
             this.loading = false;
             this.finished = true;
           }
@@ -71,7 +72,7 @@
       },
     },
     mounted(){
-      this.$toast(this.bookid);
+
     }
   }
 </script>
