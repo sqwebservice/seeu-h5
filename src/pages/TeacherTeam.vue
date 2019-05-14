@@ -16,25 +16,32 @@
 </template>
 
 <script>
+  import API from '../api';
+
   export default {
     name: "TeacherTeam",
     data() {
       return {
         titleName: '导师团队',
         active: '',
-        tabs: [
-          { id:1, class: '职业规划师' },
-          { id:2, class: '咨询行业' },
-          { id:3, class: '快测行业' },
-          { id:4, class: '会计行业' },
-          { id:5, class: '互联网行业' },
-          { id:6, class: '广告行业' },
-          { id:7, class: '房地产行业' }
-        ]
+        tabs: [ ]
       }
     },
+    created(){
+    },
+    mounted(){
+      this.getTeacherTab();
+    },
+    updated(){
+    },
     methods: {
-      change(index, title){
+      getTeacherTab(){
+        API.getTeacherTab().then((re)=>{
+          console.log(re, 'getTeacherTab');
+          this.tabs=re.data.data;
+        });
+      },
+      change(){
         this.$refs.listContainer.scrollTop=0;
       }
     }
