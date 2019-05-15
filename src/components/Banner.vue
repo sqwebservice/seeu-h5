@@ -1,17 +1,26 @@
 <template>
-  <div class="mui-slider">
-    <div class="mui-slider-group mui-slider-loop">
-      <!--支持循环，需要重复图片节点-->
-      <div class="mui-slider-item" v-for="item in hBanners">
-        <a href="#">
-          <img :src="item.path">
-        </a>
-      </div>
-    </div>
-    <div class="mui-slider-indicator">
-      <div v-for="index in indicator" class="mui-indicator" :class="index==1?' mui-active':''"></div>
-    </div>
+
+  <div>
+    <van-swipe :autoplay="3000" indicator-color="#61b8be">
+      <van-swipe-item v-for="(item, index) in banners" :key="index">
+        <img :src="item.path">
+      </van-swipe-item>
+    </van-swipe>
   </div>
+
+  <!--<div class="mui-slider">-->
+    <!--<div class="mui-slider-group mui-slider-loop">-->
+      <!--&lt;!&ndash;支持循环，需要重复图片节点&ndash;&gt;-->
+      <!--<div class="mui-slider-item" v-for="item in hBanners">-->
+        <!--<a href="#">-->
+          <!--<img :src="item.path">-->
+        <!--</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="mui-slider-indicator">-->
+      <!--<div v-for="index in indicator" class="mui-indicator" :class="index==1?' mui-active':''"></div>-->
+    <!--</div>-->
+  <!--</div>-->
 </template>
 
 <script>
@@ -58,7 +67,7 @@
       }
     },
     updated(){
-      initSlider();
+      // initSlider();
     }
   }
 
