@@ -59,6 +59,9 @@
             this.list=data;
             this.loading = false;
             this.finished = true;
+          }else{
+              this.loading = false;
+              this.finished = true;
           }
         }).catch(re=>{
           this.loading = false;

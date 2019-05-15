@@ -6,7 +6,7 @@
     </header>
 
     <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
-    <van-tabs v-model="active" sticky  :offset-top="44" swipeable v-on:change="change">
+    <van-tabs v-model="active" sticky  swipeable v-on:change="change">
       <van-tab v-for="item in tabs" :title="item.class" :key="item.id">
         <TeacherList :classid="item.id"/>
       </van-tab>
@@ -19,7 +19,7 @@
   import API from '../api';
 
   export default {
-    name: "TeacherTeam",
+    name: "teacher",
     data() {
       return {
         titleName: '导师团队',

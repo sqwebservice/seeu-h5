@@ -59,6 +59,7 @@ const getTeacherTab = ()=>{
 }
 //导师列表
 const getTeacherList = (params)=>{
+  console.log(params, 'getTeacherList');
   return doGet(teacherList, params);
 }
 
