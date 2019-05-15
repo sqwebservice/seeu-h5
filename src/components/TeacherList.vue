@@ -10,7 +10,7 @@
         <div class="mui-row">
           <div class="mui-col-sm-6 mui-col-xs-6" v-for="item in list" :key="item.id">
             <div class="sq-card">
-              <img ：src="item.avatar">
+              <img :src="item.avatar">
               <div class="info">
                 <div class="info-name">
                   <div class="name"><span class="tag">‘</span>{{item.name}}</div>
