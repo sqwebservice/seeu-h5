@@ -1,16 +1,22 @@
 <template>
   <div id="resume" class="content">
-    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
-      <a class="mui-action-back mui-icon mui-icon-back mui-pull-left" style="color: #fff"></a>
-      <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
-    </header>
+
+      <van-nav-bar
+          title="titleName"
+          left-text="返回"
+          right-text="按钮"
+          left-arrow
+          bind:click-left="onClickLeft"
+          bind:click-right="onClickRight"
+          style="background-color: #67b8bf;color: #fff;"
+      />
 
     <!--头部头像卡-->
     <div class="container">
       <div class="top">
         <div class="left">
           <div class="name">某某某</div>
-          <div class="progress">简历完成度60%</div>
+          <div class="progress">简历完成度60%1</div>
         </div>
         <div class="right">
           <div class="img-dl">
@@ -29,10 +35,10 @@
           <div>基本信息</div>
           <div class="mui-icon mui-icon-compose"></div>
         </div>
-        <ul class="mui-table-view">
-          <li class="mui-table-view-cell">Name</li>
-          <li class="mui-table-view-cell">Age</li>
-          <li class="mui-table-view-cell">Gender</li>
+        <ul >
+            <van-field v-model="username" placeholder="姓名"  />
+            <van-field v-model="age" type="number" placeholder="年龄" />
+            <van-field v-model="gender" placeholder="性别" />
         </ul>
       </div>
       <!--工作经历-->
@@ -60,7 +66,10 @@
     name: "Resume",
     data() {
       return {
-        titleName: '制作简历'
+        titleName: '制作简历',
+        username:'周周强',
+        age:'',
+        gender:''
       }
     }
   }
@@ -140,5 +149,11 @@
   .mui-table-view{
     background-color: transparent !important;
     font-size: 13px;
+  }
+  .van-cell{
+      padding: 0;
+  }
+  .van-field__control input{
+      border: 0;
   }
 </style>

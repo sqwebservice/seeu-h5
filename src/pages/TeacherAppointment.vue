@@ -116,12 +116,13 @@
         props: ['params'],
         data() {
             return {
-                titleName: '导师预约'
+                titleName: '导师预约',
+                params:{}
             }
         },
         methods:{
             toPay(){
-                console.log(this.$route.params,'11');
+                this.params=this.$route.params;
                 //this.$router.push({name: 'payment'})
             }
         }
