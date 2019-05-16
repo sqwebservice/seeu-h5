@@ -1,8 +1,8 @@
 <template>
   <div id="su-index">
     <div id="router">
-      <keep-alive include="test,mbti">
-        <router-view></router-view>
+      <keep-alive >
+          <router-view></router-view>
       </keep-alive>
     </div>
     <div id="su-tabbar">
