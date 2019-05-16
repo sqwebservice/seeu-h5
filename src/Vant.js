@@ -2,7 +2,7 @@
  * van 组件
  **/
 import Vue from 'vue';
-import { NavBar,Button, Tab, Tabs, List,Cell, PullRefresh, Toast, Dialog,Swipe, SwipeItem ,Field} from 'vant';
+import { NavBar,Button, Tab, Tabs, List,Cell, PullRefresh, Toast, Dialog,Swipe, SwipeItem ,Field,Icon} from 'vant';
 
 Vue.use(NavBar);
 Vue.use(Button);
@@ -13,6 +13,7 @@ Vue.use(Cell);
 Vue.use(Toast);
 Vue.use(Dialog);
 Vue.use(Field);//输入框
+Vue.use(Icon);//图标
 Vue.prototype.$toast = Toast;
 Vue.prototype.$dialog = Dialog;
 Vue.use(Swipe).use(SwipeItem);

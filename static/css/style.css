@@ -14,7 +14,15 @@ li{
 a{
   color: #8f8f94;
 }
-
+input {
+    border: 0 !important;
+    background-color: #f3f4f4 !important;
+    margin-bottom:0 !important;
+}
+.van-field__control{
+    background-color: #f3f4f4 !important;
+    padding: 10px 15px 10px 8px !important;
+}
 .primary-bgcolor{
 
 }
