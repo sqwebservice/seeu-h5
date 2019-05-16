@@ -17,13 +17,14 @@
                   <div class="line"></div>
                   <span class="titles">SeeU 职业规划师</span>
                 </div>
-                <div class="more" v-html="item.avatar">
+                <div class="more" v-html="item.info">
                 </div>
               </div>
               <button class="card-button" @click="yuyue(item)">查看详情</button>
             </div>
           </div>
         </div>
+
       </van-list>
     </van-pull-refresh>
   </div>
@@ -44,7 +45,7 @@ export default {
         reqParams:{
           page: 1,
           page_size: 10,
-          class_id: this.classid
+          class_id:this.classid
         }
       }
     },
@@ -57,6 +58,9 @@ export default {
             this.list=data;
             this.loading = false;
             this.finished = true;
+          }else{
+              this.loading = false;
+              this.finished = true;
           }
         }).catch(re=>{
           this.loading = false;
@@ -68,8 +72,8 @@ export default {
           this.$toast('刷新成功!');
         }, 1000);
       },
-      yuyue(){
-        this.$router.push({name: 'yuyue'});
+      yuyue(item){
+        this.$router.push({name:'teacherAppointment',params:item });
       },
       mounted(){
         this.$toast(this.classid);
@@ -143,6 +147,8 @@ export default {
   .sq-card .info .more{
     font-size: 7px;
     padding: 5px;
+    max-height: 150px;
+    min-height: 150px;
   }
   .mui-row .sq-card{
     padding: 10px;
@@ -157,5 +163,9 @@ export default {
     background-color: #67b8bf;
     color: white;
     border-radius: 5px;
+  }
+  .sq-card .info .more p{
+      font-size: 7px;
+      color: inherit;
   }
 </style>

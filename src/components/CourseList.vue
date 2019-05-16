@@ -58,6 +58,9 @@
             this.list=data;
             this.loading = false;
             this.finished = true;
+          }else{
+              this.loading = false;
+              this.finished = true;
           }
         }).catch(re=>{
           this.loading = false;
@@ -66,6 +69,8 @@
       onRefresh(){
         setTimeout(()=>{
           this.isRefresh=false;
+            this.loading = false;
+            this.finished = true;
           this.$toast('刷新成功!');
         }, 1000);
       },

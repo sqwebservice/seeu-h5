@@ -1,15 +1,17 @@
 <template>
   <div id="resume" class="content">
-    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
-      <a class="mui-action-back mui-icon mui-icon-back mui-pull-left" style="color: #fff"></a>
-      <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
-    </header>
+
+      <van-nav-bar
+          :title="titleName"
+          left-arrow
+          @click-left="onClickLeft"
+      />
 
     <!--头部头像卡-->
     <div class="container">
       <div class="top">
         <div class="left">
-          <div class="name">某某某</div>
+          <div class="name">{{username}}</div>
           <div class="progress">简历完成度60%</div>
         </div>
         <div class="right">
@@ -27,28 +29,29 @@
       <div class="base-info">
         <div class="title">
           <div>基本信息</div>
-          <div class="mui-icon mui-icon-compose"></div>
+            <van-icon name="edit" size="24px"/>
         </div>
-        <ul class="mui-table-view">
-          <li class="mui-table-view-cell">Name</li>
-          <li class="mui-table-view-cell">Age</li>
-          <li class="mui-table-view-cell">Gender</li>
+          <ul style="width: 92%;margin: 0 auto;">
+            <van-field v-model="username" type="tel"  placeholder="姓名"  />
+            <van-field v-model="age" type="number" placeholder="年龄" />
+            <van-field v-model="gender" type="tel" placeholder="性别" />
         </ul>
       </div>
       <!--工作经历-->
       <div class="job-info">
         <div class="title">
           <div>你的工作经历</div>
-          <div class="mui-icon mui-icon-compose"></div>
+            <van-icon name="edit" size="24px"/>
         </div>
-        <ul class="mui-table-view">
-          <li class="mui-table-view-cell">Company Name</li>
-          <li class="mui-table-view-cell">Job Time</li>
-          <li class="mui-table-view-cell">Job Title</li>
-          <li class="mui-table-view-cell">Job Location</li>
-          <li class="mui-table-view-cell">Start Date</li>
-          <li class="mui-table-view-cell">End Date</li>
-          <li class="mui-table-view-cell">Job Responsibilites</li>
+        <ul style="width: 92%;margin: 0 auto;">
+            <van-field v-model="companyName" type="tel" placeholder="公司名称"  />
+            <van-field v-model="jobTime" type="tel" placeholder="工作时间" />
+            <van-field v-model="jobTitle" type="tel" placeholder="职务" />
+            <van-field v-model="jobLocation" type="tel"  placeholder="工作地点" />
+            <van-field v-model="startDate" type="datetime"  placeholder="开始时间" />
+            <van-field v-model="endDate" type="datetime" placeholder="结束时间"  />
+            <van-field v-model="jobResponsibilites" type="textarea" autosize rows="1" placeholder="工作职责" />
+
         </ul>
       </div>
     </div>
@@ -60,16 +63,29 @@
     name: "Resume",
     data() {
       return {
-        titleName: '制作简历'
+        titleName: '制作简历',
+        username:'周周强',
+        age:'',
+          gender:'',
+        companyName:'',
+          jobTime:'',
+          jobTitle:'',
+          jobLocation:'',
+          startDate:'',
+          endDate:'',
+          jobResponsibilites:''
+
       }
-    }
+    },
+      methods: {
+          onClickLeft() {
+              this.$router.push({name:'me'})
+          }
+      }
   }
 </script>
-
 <style scoped>
-  #resume{
-    padding-top: 44px;
-  }
+
 
   .content{
     width: 100%;
@@ -140,5 +156,26 @@
   .mui-table-view{
     background-color: transparent !important;
     font-size: 13px;
+  }
+  .van-cell {
+      padding: 0;
+      border-bottom: 1px solid #746e6e !important;
+
+  }
+
+  .van-field__control input{
+      border: 0;
+  }
+  .van-nav-bar__title{
+      color: #ffffff;
+  }
+  .van-nav-bar .van-icon {
+      color: #ffffff;
+  }
+  .van-nav-bar {
+      background-color: #67b8bf;
+  }
+  .van-field__control{
+      background-color: #f3f4f4;
   }
 </style>

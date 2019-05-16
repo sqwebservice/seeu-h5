@@ -108,22 +108,27 @@
       </div>
     </div>
 </template>
-
 <script>
-  export default {
-    name: "Yuyue",
-    data() {
-      return {
-        titleName: '导师预约'
-      }
-    },
-    methods:{
-      toPay(){
-        this.$router.push({name: 'payment'})
-      }
+    import API from '../api';
+
+    export default {
+        name: "teacherAppointment",
+        props: ['params'],
+        data() {
+            return {
+                titleName: '导师预约',
+                params:{}
+            }
+        },
+        methods:{
+            toPay(){
+                this.params=this.$route.params;
+                //this.$router.push({name: 'payment'})
+            }
+        }
     }
-  }
 </script>
+
 
 <style scoped>
   #su-yuyue{

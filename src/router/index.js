@@ -12,7 +12,7 @@ import Info from '../pages/Info'; //填写信息
 import AllCourse from '../pages/AllCourse'; //全部课程
 import AllDatum from '../pages/AllDatum'; //全部课程
 import TeacherTeam from '../pages/TeacherTeam'; //导师团队
-import Yuyue from '../pages/Yuyue'; //预约
+import TeacherAppointment from '../pages/TeacherAppointment'; //预约
 import Payment from '../pages/Payment'; //在线缴费
 
 
@@ -38,7 +38,7 @@ export default new Router({
         { path: '/course', name: 'course', component: AllCourse},
         { path: '/datum', name: 'datum', component: AllDatum},
         { path: '/teacher', name: 'teacher', component: TeacherTeam},
-        { path: '/yuyue', name: 'yuyue', component: Yuyue},
+        { path: '/teacherAppointment', name: 'teacherAppointment', component: TeacherAppointment},
         { path: '/payment', name: 'payment', component: Payment},
       ]},
     { path:'/me/resume', name:'resume', component:Resume },
