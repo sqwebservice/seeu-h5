@@ -32,9 +32,9 @@
             <van-icon name="edit" size="24px"/>
         </div>
           <ul style="width: 92%;margin: 0 auto;">
-            <van-field v-model="username" type="tel"  placeholder="姓名"  />
-            <van-field v-model="age" type="number" placeholder="年龄" />
-            <van-field v-model="gender" type="tel" placeholder="性别" />
+            <van-field v-model="username" type="tel"  placeholder="姓名 Name"  />
+            <van-field v-model="age" type="number" placeholder="年龄 Age" />
+            <van-field v-model="gender" type="tel" placeholder="性别 Gender" />
         </ul>
       </div>
       <!--工作经历-->
@@ -44,14 +44,13 @@
             <van-icon name="edit" size="24px"/>
         </div>
         <ul style="width: 92%;margin: 0 auto;">
-            <van-field v-model="companyName" type="tel" placeholder="公司名称"  />
-            <van-field v-model="jobTime" type="tel" placeholder="工作时间" />
-            <van-field v-model="jobTitle" type="tel" placeholder="职务" />
-            <van-field v-model="jobLocation" type="tel"  placeholder="工作地点" />
-            <van-field v-model="startDate" type="datetime"  placeholder="开始时间" />
-            <van-field v-model="endDate" type="datetime" placeholder="结束时间"  />
-            <van-field v-model="jobResponsibilites" type="textarea" autosize rows="1" placeholder="工作职责" />
-
+            <van-field v-model="companyName" type="tel" placeholder="公司名称 Company Name"  />
+            <van-field v-model="jobTime" type="tel" placeholder="工作时间 Job Time" />
+            <van-field v-model="jobTitle" type="tel" placeholder="职务 Job Title" />
+            <van-field v-model="jobLocation" type="tel"  placeholder="工作地点 Job Location" />
+            <van-field v-model="startDate" type="datetime"  placeholder="开始时间 Start Date" />
+            <van-field v-model="endDate" type="datetime" placeholder="结束时间 End Date"  />
+            <van-field v-model="jobResponsibilites" type="textarea" autosize rows="1" placeholder="工作职责 Job Responsibilites" />
         </ul>
       </div>
     </div>
@@ -166,15 +165,7 @@
   .van-field__control input{
       border: 0;
   }
-  .van-nav-bar__title{
-      color: #ffffff;
-  }
-  .van-nav-bar .van-icon {
-      color: #ffffff;
-  }
-  .van-nav-bar {
-      background-color: #67b8bf;
-  }
+
   .van-field__control{
       background-color: #f3f4f4;
   }

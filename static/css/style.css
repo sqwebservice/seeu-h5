@@ -14,12 +14,23 @@ li{
 a{
   color: #8f8f94;
 }
+.van-nav-bar__title{
+    color: #ffffff !important;
+}
+.van-nav-bar .van-icon {
+    color: #ffffff !important;
+}
+.van-nav-bar {
+    background-color: #67b8bf !important;
+}
+#resume input {
+    background-color: #f3f4f4 !important;
+}
 input {
     border: 0 !important;
-    background-color: #f3f4f4 !important;
     margin-bottom:0 !important;
 }
-.van-field__control{
+#resume .van-field__control{
     background-color: #f3f4f4 !important;
     padding: 10px 15px 10px 8px !important;
 }
