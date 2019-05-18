@@ -19,7 +19,7 @@
   import API from '../api';
 
   export default {
-    name: "teacher",
+    name: "TeacherTeam",
     data() {
       return {
         titleName: '导师团队',

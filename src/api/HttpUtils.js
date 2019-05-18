@@ -11,6 +11,7 @@ const doGet = (url, params)=>{
   let promise = new Promise((resolve, reject)=>{
     axios.get(url, {params:params}).then(re =>{
       console.log("httpUtils",re);
+      console.log("httpUtils",params);
       let { status, statusText, data } = re;
       let res = { status, statusText, data };
       //http返回状态
