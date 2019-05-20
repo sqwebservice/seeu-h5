@@ -51,7 +51,6 @@
             <van-field v-model="startDate" type="datetime"  placeholder="开始时间" />
             <van-field v-model="endDate" type="datetime" placeholder="结束时间"  />
             <van-field v-model="jobResponsibilites" type="textarea" autosize rows="1" placeholder="工作职责" />
-
         </ul>
       </div>
     </div>
