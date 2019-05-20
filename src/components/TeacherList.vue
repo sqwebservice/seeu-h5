@@ -10,7 +10,9 @@
         <div class="mui-row">
           <div class="mui-col-sm-6 mui-col-xs-6" v-for="item in list" :key="item.id">
             <div class="sq-card">
-              <img :src="item.avatar">
+                <div class="tc-img">
+                    <img :src="item.avatar" onerror="javascript:this.src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556718275056&di=7c9f2516ce0f341cb28291d46ab129f7&imgtype=0&src=http%3A%2F%2Fimage-258.258.com%2F258com%2F20171111%2Fdd6b7f47fa6e430b5440121fa75e491a.jpg'" >
+                </div>
               <div class="info">
                 <div class="info-name">
                   <div class="name"><span class="tag">‘</span>{{item.name}}</div>
@@ -44,7 +46,7 @@ export default {
         isRefresh: false,
         reqParams:{
           page: 1,
-          page_size: 10,
+          page_size: 2,
           class_id:this.classid
         }
       }
@@ -53,23 +55,30 @@ export default {
       onLoad() {
         API.getTeacherList(this.reqParams).then((re)=>{
           let data = re.data.data;
-          console.log(re, 'onLoad');
-          if(data && data.length>0){
-            this.list=data;
-            this.loading = false;
-            this.finished = true;
-          }else{
+            console.log(data,this.reqParams.page);
+            if(data && data.length>0){
+              this.list.push(...data);
+              //this.list=data;
+              this.loading = false;
+              this.reqParams.page++;
+              if(data.length==1){
+                  this.finished = true;
+              }
+            }else{
               this.loading = false;
               this.finished = true;
-          }
+            }
         }).catch(re=>{
-          this.loading = false;
+            this.loading = false;
         });
       },
       onRefresh(){
         setTimeout(()=>{
-          this.isRefresh=false;
-          this.$toast('刷新成功!');
+            this.list=[];
+            this.reqParams.page=1;
+            this.finished = false;
+            this.isRefresh=false;
+            this.$toast('刷新成功!');
         }, 1000);
       },
       yuyue(item){
@@ -94,10 +103,15 @@ export default {
   .sq-card{
     width: 100%;
   }
+
   .sq-card img{
     width: 100%;
     height: auto;
     display: block;
+      position:absolute;
+      top:0;
+      left:0;
+      height:100%;
   }
   .sq-card .info{
     width: 100%;
@@ -147,8 +161,19 @@ export default {
   .sq-card .info .more{
     font-size: 7px;
     padding: 5px;
-    max-height: 150px;
-    min-height: 150px;
+    max-height: 120px;
+    min-height: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      flex-direction: column;
+  }
+  .info p{
+      overflow: hidden !important;
+      font-size: 7px !important;
+      color: #fff !important;
+
   }
   .mui-row .sq-card{
     padding: 10px;
@@ -164,8 +189,20 @@ export default {
     color: white;
     border-radius: 5px;
   }
-  .sq-card .info .more p{
-      font-size: 7px;
-      color: inherit;
+  .tc-img{
+      width: 100%;
+      padding-top:100%;
+      display: block;
+      position:relative;
+      height:0;
   }
+</style>
+<style >
+    .info p{
+        overflow: hidden !important;
+        font-size: 7px !important;
+        color: #fff !important;
+
+    }
+
 </style>
