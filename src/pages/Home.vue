@@ -1,9 +1,9 @@
 <template>
   <div id="home">
-    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;height: 55px;">
-      <!--<h1 class="mui-title" style="color: #fff;text-align: left;">{{titleName}}</h1>-->
-      <div class="mui-pull-left"><img src="../assets/logo.png"></div>
-    </header>
+
+      <van-nav-bar >
+          <img src="../assets/logo.png" slot="left" />
+      </van-nav-bar>
     <!--轮播图-->
     <Banner/>
     <!--咨询热点-->
@@ -28,17 +28,17 @@
           <router-link to="/teacher" >更多</router-link>
         </div>
       </div>
-      <div class="panel-content">
-        <div v-for="item in teachers">
-          <div class="mui-row">
-            <div class="mui-col-sm-3 mui-col-xs-3 list-item" v-for="tItem in item.list" :key="tItem.teacher_id">
-              <img :src="tItem.path" >
-              <div class="name">{{tItem.teacher_name}}</div>
-            </div>
-          </div>
-          <div class="jobtitle divider"><span>{{item.text}}</span></div>
+        <div class="panel-content">
+            <van-row gutter="20" v-for="item in teachers">
+                <van-col span="6"  v-for="tItem in item.list" :key="tItem.teacher_id">
+                    <img :src="tItem.path" >
+                    <div class="name">{{tItem.teacher_name}}</div>
+                </van-col>
+                <div class="jobtitle divider"><span>{{item.text}}</span></div>
+
+            </van-row>
+
         </div>
-      </div>
     </div>
 
     <!--全部课程-->
@@ -113,21 +113,18 @@
 
 <style scoped>
   #home {
-    padding-top: 55px;
     color: #8f8f9f;
   }
-
-  .mui-pull-left {
-    height: 100% !important;
-    display: flex;
-    align-items: center;
-    position: relative;
-    left: 20px;
+  .van-nav-bar__left{
+      height: 100% !important;
   }
-
-  .mui-pull-left img {
-    width: 100px;
-    height: 32px;
+  .van-nav-bar__left img {
+      height: 30px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      left: 20px;
   }
 
   /*message资讯*/

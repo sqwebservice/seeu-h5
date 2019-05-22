@@ -1,8 +1,8 @@
 <template>
   <div id="mbti">
-    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
-      <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
-    </header>
+
+      <van-nav-bar :title="titleName">
+      </van-nav-bar>
     <form id="form">
       <div class="content">
         <ul>
@@ -66,8 +66,9 @@
       next: function (event) {
         if(event){
           let text = event.target.textContent;
-          mui.toast(text);
-          if(text.search('提交测试') >= 0){
+            this.$toast(text);
+
+            if(text.search('提交测试') >= 0){
             console.log("push");
             this.$router.push({name: 'score'})
           }else{
@@ -83,7 +84,6 @@
   .content{
     width: 100%;
     height: 100%;
-    margin-top: 44px;
     margin-bottom: 20px;
   }
   /*li*/

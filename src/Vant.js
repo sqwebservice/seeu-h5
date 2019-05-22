@@ -2,9 +2,10 @@
  * van 组件
  **/
 import Vue from 'vue';
-import { NavBar,Button, Tab, Tabs, List,Cell, CellGroup , PullRefresh, Toast, Dialog,Swipe, SwipeItem ,Field,Icon,Uploader,Popup,Picker,RadioGroup, Radio,DatetimePicker} from 'vant';
+import { Row, Col,NavBar,Button, Tab, Tabs, List,Cell, CellGroup , PullRefresh, Toast, Dialog,Swipe, SwipeItem ,Field,Icon,Uploader,Popup,Picker,RadioGroup, Radio,DatetimePicker} from 'vant';
 
-Vue.use(NavBar);
+Vue.use(Row).use(Col);//布局
+Vue.use(NavBar);//导航
 Vue.use(Button);
 Vue.use(Tab).use(Tabs);//可以横向滚动的tab标签
 Vue.use(List);//列表加载更多控件

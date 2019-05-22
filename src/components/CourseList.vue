@@ -20,7 +20,8 @@
             </div>
             <div class="right">
                 <div class="numbers"><van-icon name="eye-o" size="16px"/><span>0人看过</span></div>
-              <div class="button">{{item.charge==0?'免费试看':item.charge+'元'}}</div>
+                <van-button round  type="info" size="mini">{{item.charge==0?'免费试看':item.charge+'元'}}</van-button>
+
             </div>
           </div>
         </div>

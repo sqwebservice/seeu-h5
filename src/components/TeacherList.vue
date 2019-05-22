@@ -7,25 +7,26 @@
         finished-text="没有更多了"
         @load="onLoad"
       >
-        <div class="mui-row">
-          <div class="mui-col-sm-6 mui-col-xs-6" v-for="item in list" :key="item.id">
-            <div class="sq-card">
-                <div class="tc-img">
-                    <img :src="item.avatar" onerror="javascript:this.src='../../static/images/tc.jpg'" >
-                </div>
-              <div class="info">
-                <div class="info-name">
-                  <div class="name"><span class="tag">‘</span>{{item.name}}</div>
-                  <div class="line"></div>
-                  <span class="titles">SeeU 职业规划师</span>
-                </div>
-                <div class="more" v-html="item.info">
-                </div>
-              </div>
-              <button class="card-button" @click="yuyue(item)">查看详情</button>
-            </div>
-          </div>
-        </div>
+          <van-row gutter="20">
+              <van-col span="12" v-for="item in list" :key="item.id">
+                  <div class="sq-card">
+                      <div class="tc-img">
+                          <img :src="item.avatar" onerror="javascript:this.src='../../static/images/tc.jpg'" >
+                      </div>
+                      <div class="info">
+                          <div class="info-name">
+                              <div class="name"><span class="tag">‘</span>{{item.name}}</div>
+                              <div class="line"></div>
+                              <span class="titles">SeeU 职业规划师</span>
+                          </div>
+                          <div class="more" v-html="item.info">
+                          </div>
+                      </div>
+                      <van-button  size="info" @click="yuyue(item)" >查看详情</van-button>
+                    </div>
+              </van-col>
+
+          </van-row>
 
       </van-list>
     </van-pull-refresh>

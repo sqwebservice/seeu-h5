@@ -1,9 +1,10 @@
 <template>
   <div id="su-course">
-    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
-      <a class="mui-action-back mui-icon mui-icon-back mui-pull-left" style="color: #fff"></a>
-      <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
-    </header>
+      <van-nav-bar
+          :title="titleName"
+          left-arrow
+
+      />
     <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
     <van-tabs v-model="active" sticky animated  swipeable :ellipsis="false">
       <van-tab v-for="item in tabs" :title="item.class_name" :key="item.id" v-on:change="change">
@@ -66,8 +67,6 @@
 </style>
 <style scoped>
   #su-course{
-    padding-top: 44px;
-    padding-bottom: 20px;
     position: relative;
   }
 

@@ -22,7 +22,7 @@
               <div class="numbers"><van-icon name="clock-o" size="16px"/><span>{{item.published_at}}</span></div>
             <div class="numbers"><van-icon name="eye-o" size="16px"/><span>阅读{{item.view_num}}</span></div>
             <div class="numbers"><van-icon name="like-o" size="16px"/><span>收藏{{item.view_num}}</span></div>
-            <div class="button">免费试看</div>
+              <van-button round  type="info" size="mini">免费试看</van-button>
           </div>
         </div>
 
