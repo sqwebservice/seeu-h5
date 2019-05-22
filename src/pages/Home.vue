@@ -151,7 +151,7 @@
 
   /*teacher导师*/
   #teacher .list-item {
-    padding: 5px 5px;
+    padding: 5px;
     text-align: center;
     font-size: 14px;
   }

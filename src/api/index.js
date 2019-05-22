@@ -5,9 +5,9 @@ const baseUrl = ""; //不设置，用当前域名
 const rotpic = baseUrl+"/api/v1/rotpic";
 const cjv = baseUrl+"/api/v1/cjv";
 const courseClz = baseUrl+" /api/v1/courses";  //视频分类
-const courseUrl = baseUrl+" /api/v1/course/list/";  //视频列表
-const datumBooks = baseUrl+"/api/v1/books";  //资料分类
-const datumList = baseUrl+"/api/v1/books/chapters";  //资料列表
+const courseUrl = baseUrl+" /api/v1/courses/list/";  //视频列表
+const datumBooks = baseUrl+"/api/v1/bookclass";  //资料分类
+const datumList = baseUrl+"/api/v1/books";  //资料列表
 const teacher = baseUrl+" /api/v1/teacher/sort";  //导师分类
 const teacherList = baseUrl+"/api/v1/teacher";  //导师列表
 const hotclassUrl = baseUrl+" /api/v1/hotclass";  //首页热门课程
@@ -33,8 +33,8 @@ const courseClass = ()=>{
 /**
  * 视频列表
  */
-const getCourse = (cid, params)=>{
-  return doGet(courseUrl+cid, params);
+const getCourse = (params)=>{
+  return doGet(courseUrl, params);
 }
 
 //资料分类

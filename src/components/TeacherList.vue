@@ -11,7 +11,7 @@
           <div class="mui-col-sm-6 mui-col-xs-6" v-for="item in list" :key="item.id">
             <div class="sq-card">
                 <div class="tc-img">
-                    <img :src="item.avatar" onerror="javascript:this.src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556718275056&di=7c9f2516ce0f341cb28291d46ab129f7&imgtype=0&src=http%3A%2F%2Fimage-258.258.com%2F258com%2F20171111%2Fdd6b7f47fa6e430b5440121fa75e491a.jpg'" >
+                    <img :src="item.avatar" onerror="javascript:this.src='../../static/images/tc.jpg'" >
                 </div>
               <div class="info">
                 <div class="info-name">
@@ -195,6 +195,8 @@ export default {
       display: block;
       position:relative;
       height:0;
+      background: url("../../static/images/tc.jpg") no-repeat;
+      background-size: cover;
   }
 </style>
 <style >
@@ -202,7 +204,6 @@ export default {
         overflow: hidden !important;
         font-size: 7px !important;
         color: #fff !important;
-
     }
 
 </style>
