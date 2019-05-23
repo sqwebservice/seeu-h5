@@ -1,12 +1,21 @@
 <template>
   <div id="su-classify">
-    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
-      <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
-    </header>
-    <div class="all">
-      <router-link to="/course" class="item">全部课程<div class="bt">点击进入</div></router-link>
-      <router-link to="/datum" class="item">资料专区<div class="bt">点击进入</div></router-link>
-    </div>
+      <van-nav-bar :title="titleName">
+      </van-nav-bar>
+      <van-cell-group >
+          <van-cell title="全部课程"  to="/course" >
+              <template>
+                  <van-button  type="info" size="mini">点击进入</van-button>
+              </template>
+          </van-cell >
+      </van-cell-group>
+      <van-cell-group >
+          <van-cell title="资料专区"  >
+              <template>
+                <van-button  type="info" size="mini"  to="/datum">点击进入</van-button>
+              </template>
+        </van-cell >
+      </van-cell-group>
   </div>
 </template>
 
@@ -23,7 +32,6 @@
 
 <style scoped>
   #su-classify{
-    padding-top: 44px;
   }
   .all{
     width: 100%;
@@ -49,5 +57,8 @@
     color: white;
     border-radius: 5px;
   }
-
+  .van-cell-group {
+      background-color: #fff;
+      margin-top: 5px;
+  }
 </style>

@@ -37,7 +37,6 @@ input {
 .primary-bgcolor{
 
 }
-
 /* 超过两行 省略 */
 .ellipsis{
   margin:0;
@@ -157,63 +156,6 @@ input {
     top: -12px;
     background: #f3f4f4;
     padding: 0 20px;
-}
-
-/*cover视频封面介绍*/
-.cover-course{
-    padding: 5px;
-    margin-top: 5px;
-}
-.cover-course .image{
-    width: 100%;
-    min-height: 100px;
-    display: block;
-    position: relative;
-}
-.cover-course .image .img{
-    width: 100%;
-    display: block;
-    border-radius: 5px;
-}
-.cover-course .image .play{
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: calc(50% - 25px);
-    left: calc(50% - 25px);
-}
-.cover-course .details{
-    line-height: 20px;
-    padding: 2px;
-}
-.cover-course .details .title{
-    font-size: 16px;
-    line-height: 22px;
-}
-.cover-course .details .teacher{
-    font-size: 11px;
-  margin-bottom: 5px;
-}
-.cover-course .details .info{
-    font-size: 11px;
-}
-.cover-course .right{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    text-align-all: center;
-}
-.cover-course .right .numbers{
-    font-size: 10px;
-}
-.cover-course .right .button{
-    width: auto;
-    height: 25px;
-    padding: 2px 8px;
-    background-color: #61b8be;
-    border-radius: 10px;
-    font-size: 10px;
-    color: white;
 }
 
 /*footer*/

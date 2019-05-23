@@ -1,13 +1,14 @@
 <template>
   <div id="su-datum">
-    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
-      <a class="mui-action-back mui-icon mui-icon-back mui-pull-left" style="color: #fff"></a>
-      <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
-    </header>
+      <van-nav-bar
+          :title="titleName"
+          left-arrow
+
+      />
     <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
-    <van-tabs v-model="active" sticky animated :offset-top="44" swipeable  :ellipsis="false">
-      <van-tab v-for="item in tabs" :title="item.title" :key="item.id" v-on:change="change">
-        <DatumList :bookid="item.id"/>
+    <van-tabs v-model="active" sticky animated  swipeable  :ellipsis="false">
+      <van-tab v-for="item in tabs" :title="item.name" :key="item.id" v-on:change="change">
+        <DatumList :class_id="item.id"/>
       </van-tab>
     </van-tabs>
   </div>
@@ -66,8 +67,6 @@
 </style>
 <style scoped>
   #su-datum{
-    padding-top: 44px;
-    padding-bottom: 20px;
     position: relative;
   }
 </style>

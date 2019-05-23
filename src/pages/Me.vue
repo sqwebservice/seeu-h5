@@ -1,8 +1,7 @@
 <template>
   <div id="me">
-    <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
-      <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
-    </header>
+      <van-nav-bar :title="titleName">
+      </van-nav-bar>
 
     <div class="me-card">
       <div class="img-dl" style="border-color: rgba(44,62,80, .7);">
@@ -46,7 +45,7 @@
         if(path.search('resume')>=0){
           this.$router.push(path);
         }else{
-          mui.toast("开发中...");
+            this.$toast('开发中...');
         }
       }
     }
@@ -55,8 +54,6 @@
 
 <style scoped>
   #me {
-    padding-top: 44px;
-    background-color: #efefef;
   }
   .me-card{
     width: 90%;
