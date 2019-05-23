@@ -30,8 +30,10 @@
       </div>
         <div class="panel-content">
             <van-row gutter="20" v-for="item in teachers">
-                <van-col span="6"  v-for="tItem in item.list" :key="tItem.teacher_id">
-                    <img :src="tItem.path" >
+                <van-col span="6" justify="space-between" v-for="tItem in item.list" :key="tItem.teacher_id" >
+                    <div class="tcimg">
+                        <img :src="tItem.path"  onerror="javascript:this.src='../../static/images/tc.jpg'">
+                    </div>
                     <div class="name">{{tItem.teacher_name}}</div>
                 </van-col>
                 <div class="jobtitle divider"><span>{{item.text}}</span></div>
@@ -50,23 +52,24 @@
         </div>
       </div>
       <div class="panel-content">
-        <div class="mui-row">
-          <div class="mui-col-sm-6 mui-col-xs-6 cover-course" v-for="item in hotClass" :key="item.class_id">
-            <div class="image">
-              <img class="img" :src="item.path"/>
-              <img class="play" src="../../static/images/play-small-new_1daa417.png">
-            </div>
-            <div class="details left">
-              <div class="title">{{item.class_name}}</div>
-              <div class="teacher ellipsis">{{item.short_class_name}}</div>
-              <div class="info">{{item.content}}</div>
-            </div>
-            <div class="right">
-              <div class="numbers"><a class="mui-icon mui-icon-person"></a>{{0}}人看过</div>
-              <div class="button">免费试看</div>
-            </div>
-          </div>
-        </div>
+
+          <van-row type="flex" justify="space-between"  gutter="20">
+              <van-col span="12" v-for="item in hotClass" :key="item.class_id">
+                  <div class="image">
+                      <img class="img" :src="item.path" onerror="javascript:this.src='../../static/images/tc.jpg'"/>
+                  </div>
+                  <div class="details left">
+                      <div class="title">{{item.class_name}}</div>
+                      <div class="teacher ellipsis">{{item.short_class_name}}</div>
+                      <div class="info">{{item.content}}</div>
+                  </div>
+                  <div class="panel-content-bottom">
+                      <div class="numbers"><van-icon name="eye-o" size="16px"/><span>{{0}}人看过</span></div>
+                      <van-button round  type="info" size="mini">免费试看</van-button>
+                  </div>
+              </van-col>
+          </van-row>
+
       </div>
     </div>
   </div>
@@ -114,6 +117,14 @@
 <style scoped>
   #home {
     color: #8f8f9f;
+      width: 100%;
+      position:relative;
+  }
+  .right{
+      float: right;
+  }
+  .left{
+      float: left;
   }
   .van-nav-bar__left{
       height: 100% !important;
@@ -153,12 +164,28 @@
     font-size: 14px;
   }
 
-  #teacher .list-item img {
-    width: 100%;
-    min-height: 40px;
-    display: block;
+  #teacher .van-col img {
+      width: 100%;
+      height: auto;
+      display: block;
+      position:absolute;
+      top:0;
+      left:0;
+      height:100%;
+  }
+  #teacher .van-col .name {
+      text-align: center;
   }
 
+  .tcimg{
+      width: 100%;
+      padding-top:100%;
+      display: block;
+      position:relative;
+      height:0;
+      background: url("../../static/images/tc.jpg") no-repeat;
+      background-size: cover;
+  }
   #teacher .jobtitle {
     width: 100%;
     position: relative;
@@ -168,6 +195,8 @@
     color: #333333 !important;
     padding: 0;
     margin: 0;
+      float: left;
+      margin-top: 10px;
   }
 
   #teacher .panel-content > div {
@@ -181,4 +210,30 @@
   #course .teacher{
     font-size: 9px;
   }
+    #course .image {
+      border-radius: 5px;
+      width: 100%;
+      padding-top:60%;
+      display: block;
+      position:relative;
+      height:0;
+  }
+  #course .image img{
+      width: 100%;
+      height: auto;
+      display: block;
+      position:absolute;
+      top:0;
+      left:0;
+      height:100%;
+  }
+    .panel-content-bottom{
+        width:100%
+    }
+  .panel-content-bottom .numbers{
+      float: left;
+  }
+   .panel-content-bottom .van-button{
+        float: right;
+    }
 </style>

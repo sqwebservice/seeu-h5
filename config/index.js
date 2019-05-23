@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       // 配置转发的域 /api下面的请求均发起转发
-      '/api':{
+      '/':{
         target:'https://seeu.hisums.cn',
         changeOrigin:true
       }
