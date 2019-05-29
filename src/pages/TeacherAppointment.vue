@@ -1,24 +1,23 @@
 <template>
     <div id="su-yuyue">
-      <header class="mui-bar mui-bar-nav" style="background-color: #67b8bf;color: #fff;">
-        <a class="mui-action-back mui-icon mui-icon-back mui-pull-left" style="color: #fff"></a>
-        <h1 class="mui-title" style="color: #fff;">{{titleName}}</h1>
-      </header>
-
+        <van-nav-bar
+            :title="titleName"
+            left-arrow
+            @click.native="$router.back(-1)"
+        />
       <div class="content" >
         <div class="teacher">
           <div class="photo">
-            <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3361187273,328930179&fm=26&gp=0.jpg">
+              <img :src="params.avatar" onerror="javascript:this.src='../../static/images/tc.jpg'" >
           </div>
           <div class="text">
-            <span style="font-size: 18px">Sophia.Lin</span>
-            <ul>
-              <li>毕业院校：英国佐治亚大学</li>
-              <li>工作经验：5年+</li>
-              <li>与世界五百强企业有着密切的业务往来</li>
-            </ul>
+            <span style="font-size: 18px">{{params.name}}</span>
+            <div v-html="params.info">
+
+            </div>
           </div>
         </div>
+
         <div class="sel-date">
           <div class="tab-bar">
             <div class="tab-bar-item">
@@ -113,18 +112,28 @@
 
     export default {
         name: "teacherAppointment",
-        props: ['params'],
+
         data() {
             return {
                 titleName: '导师预约',
-                params:{}
+                params:{
+                    name:'',
+                    info:'',
+
+                }
             }
         },
         methods:{
             toPay(){
                 this.params=this.$route.params;
+                console.log(111111);
                 //this.$router.push({name: 'payment'})
             }
+        },
+        mounted(){
+            this.toPay();
+            console.log(22222);
+
         }
     }
 </script>
@@ -132,8 +141,6 @@
 
 <style scoped>
   #su-yuyue{
-    padding-top: 44px;
-    padding-bottom: 20px;
     position: relative;
   }
 

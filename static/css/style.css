@@ -14,6 +14,17 @@ li{
 a{
   color: #8f8f94;
 }
+.van-list{
+    height: 100%;
+}
+.van-button--info {
+    color: #fff;
+    background-color: #67b8bf !important;
+    border: 1px solid #67b8bf !important;
+}
+.van-nav-bar .van-icon{
+    line-height: 46px;
+}
 .van-nav-bar__title{
     color: #ffffff !important;
 }
@@ -195,6 +206,7 @@ input {
     position: relative;
     padding: 0 15px;
     margin-top: 10px;
+    box-sizing: border-box;
 }
 .panel .panel-title{
     color: #61b8be;

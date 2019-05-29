@@ -1,7 +1,7 @@
 import { doGet, doPost } from "./HttpUtils";
 
 // const baseUrl = "https://seeu.hisums.cn"; //测试环境
-const baseUrl = ""; //不设置，用当前域名
+const baseUrl = "http://sys.seeu-edu.com"; //不设置，用当前域名
 const rotpic = baseUrl+"/api/v1/rotpic";
 const cjv = baseUrl+"/api/v1/cjv";
 const courseClz = baseUrl+" /api/v1/courses";  //视频分类

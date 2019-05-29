@@ -3,11 +3,11 @@
       <van-nav-bar
           :title="titleName"
           left-arrow
-
+          @click.native="$router.back(-1)"
       />
     <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
-    <van-tabs v-model="active" sticky animated  swipeable  :ellipsis="false">
-      <van-tab v-for="item in tabs" :title="item.name" :key="item.id" v-on:change="change">
+    <van-tabs v-model="active" sticky animated  swipeable  :ellipsis="false" style="height: 100%">
+      <van-tab v-for="item in tabs" :title="item.name" :key="item.id" v-on:change="change" style="height: 100%">
         <DatumList :class_id="item.id"/>
       </van-tab>
     </van-tabs>

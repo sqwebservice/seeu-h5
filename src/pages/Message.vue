@@ -96,5 +96,6 @@
     background-color: white;
     margin-top: 5px;
     padding: 10px 20px;
+      box-sizing: border-box;
   }
 </style>
