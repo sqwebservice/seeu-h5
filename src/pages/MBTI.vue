@@ -13,8 +13,7 @@
                 <li v-for="oItem in item.options">
                   <label class="sq-radio">
                     {{oItem}}
-                    <input type="radio" :name="item.id">
-                    <i></i>
+                    <input type="radio" :name="item.id"><i></i>
                   </label>
                 </li>
               </ul>

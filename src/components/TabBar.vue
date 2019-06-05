@@ -1,7 +1,9 @@
 <template>
     <div class="su-tabbar">
-        <router-link class="item" :class="{active: active==index}" @click.native="onClick(index)" v-for="(item ,index) in tabs" :to="item.url" >
-            <img :src="active==index? item.src.filling:item.src.normal"/><div>{{item.text}}</div>
+        <router-link class="item" @click.native="onClick(index)" v-for="(item ,index) in tabs" :to="item.url" >
+            <img class="is-show" :src="item.src.normal"/>
+            <img class="is-show" :src="item.src.filling"/>
+            <div>{{item.text}}</div>
         </router-link>
     </div>
 </template>
@@ -13,7 +15,7 @@
             return {
               tabs: [
                 { src: {normal: require( '../assets/tabbar/home.png'), filling: require( '../assets/tabbar/home-fill.png') },
-                    text: '首页', url: "/" },
+                    text: '首页', url: "/home" },
                 { src: { normal: require('../assets/tabbar/book.png'), filling: require('../assets/tabbar/book-fill.png')},
                     text: '测试', url: "/test" },
                 { src: { normal:require('../assets/tabbar/all.png'), filling: require('../assets/tabbar/all-fill.png')},
@@ -30,6 +32,10 @@
             onClick(el){
                 this.active = el;
             }
+        },
+        beforeRouteUpdate(to, from, next){
+            console.log(from, 'from');
+            alert('tabbar');
         }
     }
 </script>
@@ -63,7 +69,21 @@
   .su-tabbar .item>img{
     width: 23px;
     height: 23px;
+      display: none;
   }
+  .su-tabbar .item>img:nth-child(1){
+      display: block;
+      color: #419ca3;
+  }
+  .su-tabbar .nav_active>img:nth-child(1){
+      display: none;
+      color: #333333;
+  }
+  .su-tabbar .nav_active>img:nth-child(2){
+      display: block;
+      color: #333333;
+  }
+
   .su-tabbar .active{
     color: #419ca3;
   }

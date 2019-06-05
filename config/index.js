@@ -10,13 +10,13 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      // 配置转发的域 /api下面的请求均发起转发
-      '/':{
-        target:'https://seeu.hisums.cn',
-        changeOrigin:true
-      }
-    },
+    // proxyTable: {
+    //   // 配置转发的域 /api下面的请求均发起转发
+    //   '/':{
+    //     target:'http://sys.seeu-edu.com',
+    //     changeOrigin:true
+    //   }
+    // },
 
     // Various Dev Server settings
     host: '0.0.0.0', // can be overwritten by process.env.HOST
