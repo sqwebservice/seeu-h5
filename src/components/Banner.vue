@@ -1,9 +1,9 @@
 <template>
 
   <div>
-    <van-swipe :autoplay="3000" indicator-color="#61b8be">
+    <van-swipe :autoplay="3000" indicator-color="#61b8be" >
       <van-swipe-item v-for="(item, index) in banners" :key="index">
-        <img :src="item.path">
+        <img src="'../../static/images/tc.jpgh" onerror="javascript:this.src='../../static/images/tc.jpg'">
       </van-swipe-item>
     </van-swipe>
   </div>
@@ -81,10 +81,25 @@
   }
 </script>
 
-<style>
+<style scoped>
   /*mui-slider-indicator*/
-  .mui-slider-indicator .mui-active{
-    background-color: #61b8be !important;
-    color: #61b8be;
+
+
+  .van-swipe-item {
+      width: 100%;
+      padding-top:30%;
+      display: block;
+      position:relative;
+      height:0;
   }
+  .van-swipe-item img{
+      width: 100%;
+      height: auto;
+      display: block;
+      position:absolute;
+      top:0;
+      left:0;
+      height:100%;
+  }
+
 </style>

@@ -3,7 +3,7 @@
       <van-nav-bar
           :title="titleName"
           left-arrow
-
+          @click.native="$router.back(-1)"
       />
     <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
     <van-tabs v-model="active" sticky  swipeable v-on:change="change" :ellipsis="false">

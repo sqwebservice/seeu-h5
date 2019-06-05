@@ -3,7 +3,7 @@
       <van-nav-bar
           :title="titleName"
           left-arrow
-
+          @click.native="$router.back(-1)"
       />
     <!--通过sticky属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶-->
     <van-tabs v-model="active" sticky animated  swipeable :ellipsis="false">
@@ -35,6 +35,9 @@
     updated(){
     },
     methods: {
+        onClickLeft() {
+            this.$router.push({name:'me'})
+        },
       getCourseClz(){
         API.courseClass().then((re)=>{
           console.warn(re, 'getCourseClz');
