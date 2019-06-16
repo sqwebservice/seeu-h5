@@ -1,5 +1,6 @@
 function getUrlParam(paraName) {
     var url = document.location.toString();
+
     var arrObj = url.split("?");
 
     if (arrObj.length > 1) {

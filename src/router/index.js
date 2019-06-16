@@ -43,11 +43,11 @@ const router = new Router({
                     ]
                 },
                 {path: '/me', name: 'me', component: Me},
-                {path: '/classify', name: 'classify', component: Classify},
+                {path: '/classify', name: 'classify', component: Classify, meta:{ noNeedLogin: true }},
                 {path: '/message', name: 'message', component: Message},
-                {path: '/course', name: 'course', component: AllCourse},
-                {path: '/datum', name: 'datum', component: AllDatum},
-                {path: '/teacher', name: 'teacher', component: TeacherTeam},
+                {path: '/course', name: 'course', component: AllCourse,meta:{ noNeedLogin: true }},
+                {path: '/datum', name: 'datum', component: AllDatum,meta:{ noNeedLogin: true }},
+                {path: '/teacher', name: 'teacher', component: TeacherTeam, meta:{ noNeedLogin: true }},
                 {path: '/teacherAppointment', name: 'teacherAppointment', component: TeacherAppointment},
                 {path: '/payment', name: 'payment', component: Payment},
             ]

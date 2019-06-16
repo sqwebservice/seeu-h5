@@ -1,6 +1,9 @@
 <template>
     <div>
         LoginPage
+        <div>
+            code: {{code}}
+        </div>
     </div>
 </template>
 
@@ -10,17 +13,24 @@
     export default {
         name: "Login",
         data() {
-            return {}
+            return {
+                code: ''
+            }
         },
         beforeCreate() {
             console.log('login');
             let ua = window.navigator.userAgent.toLowerCase();
+            //根据code获取用户信息
+            this.$nextTick(function () {
+                alert('dfdf');
+                this.code=utils.getUrlParam('code');
+            });
             console.log(ua ,'ua');
             if(ua.match(/MicroMessenger/i) == 'micromessenger'){
                 //如果是微信端，验证参数是否存在code
                 let code = utils.getUrlParam('code');
                 if(code){
-                    //根据code获取用户信息
+                    //根据code获取信息
                 }else{
                     let redirect_uri = encodeURIComponent(config.redirect_uri);
                     //跳转到授权页
